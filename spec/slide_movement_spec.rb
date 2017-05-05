@@ -57,7 +57,6 @@ describe Piece do
       }
     end
     let(:piece) { Piece.new(movement) }
-    let(:all_moves) { movement[:slide].flatten(1) }
     it "raises an error unless a position is given" do
       gb = Gameboard.new
       expect { piece.slide_moves(gb) }.to raise_error('No possible moves without a position')
