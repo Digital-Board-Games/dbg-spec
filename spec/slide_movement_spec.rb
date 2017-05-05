@@ -40,7 +40,7 @@ class Piece
     movement[:slide].map do |slide|
       slide
         .map { |x,y| t(x,y) }
-        .reject { |x,y| x < 0 || y < 0 || x > 7 || y > 7}  # out of bounds
+        .reject { |x,y| x < 0 || y < 0 || x > 7 || y > 7 }  # out of bounds
         .take_while { |x,y| gameboard[x][y].nil? }  # blocked
     end.flatten(1)
   end
@@ -51,8 +51,8 @@ describe Piece do
     let(:movement) do
       {
         slide: [
-          [[1, 1], [2, 2], [3, 3], [4, 4]],  # up and right
-          [[-1, 1], [-2, 2], [-3, 3], [-4, 4]],  # up and left
+          [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5], [6, 6], [7, 7]],  # up and right
+          [[-1, 1], [-2, 2], [-3, 3], [-4, 4], [-5, 5], [-6, 6], [-7,7]],  # up and left
         ]
       }
     end
@@ -67,7 +67,7 @@ describe Piece do
       piece.position = [2, 2]
       moves = piece.slide_moves(gb)
       # four squares up and right, plus two squares up and left
-      available_moves =  [[3, 3], [4, 4], [5, 5], [6, 6], [1, 3], [0, 4]]
+      available_moves =  [[3, 3], [4, 4], [5, 5], [6, 6], [7, 7], [1, 3], [0, 4]]
       expect(moves).to eq(available_moves)
     end
     it "can't slide where blocked" do
