@@ -2,6 +2,7 @@ require 'spec_helper'
 
 class Gameboard
   attr_accessor :board
+
   def initialize
     @board = 8.times.map { 8.times.map { nil } }
   end
@@ -68,14 +69,3 @@ describe Piece do
     end
   end
 end
-
-
-
-
-
-
-
-
-
-
-
