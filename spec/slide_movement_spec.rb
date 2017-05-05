@@ -63,8 +63,8 @@ describe Piece do
       expect(moves).to eq(available_moves)
     end
     it "can't slide where blocked" do
-      # With a piece on (1, 1) of our gameboard,all sliding moves 
-      # to that square and beyond are blocked.
+      # With this piece on (2, 2) of the gameboard, and another piece 
+      # on (3, 3), all sliding moves up and to the right are blocked.
       gb = Gameboard.new
       gb[3][3] = 1
       piece.position = [2, 2]
