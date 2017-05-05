@@ -10,13 +10,6 @@ class Gameboard
   def [](*keys)
     board.send :[], *keys
   end
-
-  def t(piece_x, piece_y)
-    # return a translater from a piece's self-centric 
-    # position and move to the gameboard's position
-    # and moves
-    return ->(move_x, move_y){ [move_x + piece_x, move_y + piece_y] }
-  end
 end
 
 class Piece
